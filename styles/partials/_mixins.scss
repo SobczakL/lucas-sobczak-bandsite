@@ -9,31 +9,31 @@
 @mixin fontSet__sectionHeader-mobile {
     font-size: 24px;
     line-height: 32px;
-    line-height: $fontWeight-bold;
+    font-weight: $fontWeight-bold;
 }
 
 @mixin fontSet__subheader-mobile {
     font-size: 14px;
     line-height: 22px;
-    line-height: $fontWeight-demi;
+    font-weight: $fontWeight-demi;
 }
 
 @mixin fontSet__bodyCopy-mobile {
     font-size: 13px;
     line-height: 18px;
-    line-height: $fontWeight-regular;
+    font-weight: $fontWeight-regular;
 }
 
 @mixin fontSet__footerCopy-mobile {
     font-size: 13px;
     line-height: 18px;
-    line-height: $fontWeight-regular;
+    font-weight: $fontWeight-regular;
 }
 
 @mixin fontSet__labelsButtons-mobile {
     font-size: 10px;
     line-height: 20px;
-    line-height: $fontWeight-bold;
+    font-weight: $fontWeight-bold;
 }
 
 @mixin fontSet__pageHeader {
@@ -45,31 +45,31 @@
 @mixin fontSet__sectionHeader {
     font-size: 36px;
     line-height: 44px;
-    line-height: $fontWeight-bold;
+    font-weight: $fontWeight-bold;
 }
 
 @mixin fontSet__subheader {
     font-size: 24px;
     line-height: 32px;
-    line-height: $fontWeight-demi;
+    font-weight: $fontWeight-demi;
 }
 
 @mixin fontSet__bodyCopy {
     font-size: 14px;
     line-height: 22px;
-    line-height: $fontWeight-regular;
+    font-weight: $fontWeight-regular;
 }
 
 @mixin fontSet__footerCopy {
     font-size: 14px;
     line-height: 20px;
-    line-height: $fontWeight-regular;
+    font-weight: $fontWeight-regular;
 }
 
 @mixin fontSet__labelsButtons {
     font-size: 12px;
     line-height: 20px;
-    line-height: $fontWeight-bold;
+    font-weight: $fontWeight-bold;
 }
 
 @mixin widthSet ($width, $min-width, $max-width) {  

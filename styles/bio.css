@@ -1,17 +1,230 @@
 @font-face {
-  font-family: Avenir-regular;
-  src: url(../../asssets/font/Alternative_files/AvenirNextLTPro.ttf);
+  font-family: "AveReg";
+  src: url("../../assets/font/Alternative_files/AvenirNextLTPro.ttf") format("truetype"), url("../../assets/font/AvenirNextLTPro-Regular.otf") format("opentype");
 }
 @font-face {
-  font-family: Avenir-demi;
-  src: url(../../asssets/font/Alternative_files/AvenirNextLTProDemi.ttf);
+  font-family: "AveDemi";
+  src: url("../../assets/font/Alternative_files/AvenirNextLTProDemi.ttf") format("truetype"), url("../../assets/font/AvenirNextLTPro-Demi.otf") format("opentype");
 }
 @font-face {
-  font-family: Avenir-bold;
-  src: url(../../asssets/font/Alternative_files/AvenirNextLTProBold.ttf);
+  font-family: "AveBold";
+  src: url("../../assets/font/Alternative_files/AvenirNextLTProBold.ttf") format("truetype"), url("../../assets/font/AvenirNextLTPro-Bold.otf") format("opentype");
 }
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: "AveReg";
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #323232;
+  color: #FFFFFF;
+  height: 85px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding-top: 1rem;
+}
+.nav__logo {
+  max-width: 120px;
+  max-height: 80px;
+}
+.nav__links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 50%;
+}
+.nav__link {
+  box-sizing: border-box;
+  text-align: center;
+  width: 50%;
+  height: 100%;
+}
+.nav__bio {
+  font-family: "AveDemi";
+  border-bottom: solid 4px #FFFFFF;
+}
+.nav__shows:hover {
+  border-bottom: solid 4px #FFFFFF;
+}
+
+.hero {
+  background-image: url(../assets/images/hero-bio.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 27vh;
+  position: relative;
+}
+.hero::before {
+  z-index: 1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #323232;
+  opacity: 0.4;
+}
+.hero__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.hero__header {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  font-family: "AveDemi";
+  position: relative;
+  z-index: 2;
+  color: #FFFFFF;
+  left: 1rem;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 16px;
+}
+.about__header {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  font-family: "AveDemi";
+  margin-top: 24px;
+}
+.about__img {
+  margin: 16px 0;
+  max-height: 200px;
+}
+.about__caption {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.3rem;
+}
+.about__caption-quote {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 600;
+  font-family: "AveDemi";
+}
+.about__caption-credits {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 600;
+  font-family: "AveDemi";
+}
+.about__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+.about__container-subheader {
+  margin-top: 24px;
+}
+.about__container-text1 {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+}
+.about__container-text2 {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+.photo-gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 16px;
+}
+.photo-gallery__header {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  font-family: "AveDemi";
+  margin-top: 24px;
+}
+.photo-gallery__column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 16px;
+  width: 100%;
+  background-color: #323232;
+  color: white;
+}
+.footer__social {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 16px;
+  margin-top: 24px;
+}
+.footer__social-header {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  font-family: "AveDemi";
+  letter-spacing: 0.5px;
+}
+.footer__social-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+  gap: 16px;
+}
+.footer__contact-name {
+  font-family: "AveDemi";
+}
+.footer__copywrite {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+  gap: 16px;
+  margin-top: 56px;
 }/*# sourceMappingURL=bio.css.map */
