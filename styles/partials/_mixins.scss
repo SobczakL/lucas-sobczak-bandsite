@@ -1,76 +1,71 @@
 @use './variables' as *;
 
-@mixin fontSet__pageHeader-mobile {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: $fontWeight-bold;
-}
-
-@mixin fontSet__sectionHeader-mobile {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: $fontWeight-bold;
-}
-
-@mixin fontSet__subheader-mobile {
-    font-size: 14px;
-    line-height: 22px;
-    font-weight: $fontWeight-demi;
-}
-
-@mixin fontSet__bodyCopy-mobile {
-    font-size: 13px;
-    line-height: 18px;
-    font-weight: $fontWeight-regular;
-}
-
-@mixin fontSet__footerCopy-mobile {
-    font-size: 13px;
-    line-height: 18px;
-    font-weight: $fontWeight-regular;
-}
-
-@mixin fontSet__labelsButtons-mobile {
-    font-size: 10px;
-    line-height: 20px;
-    font-weight: $fontWeight-bold;
-}
-
 @mixin fontSet__pageHeader {
-    font-size: 60px;
-    line-height: 68px;
+    font-size: 24px;
+    line-height: 32px;
     font-weight: $fontWeight-bold;
+    @media (min-width: 780px) {
+        font-size: 60px;
+        line-height: 68px;
+        font-weight: $fontWeight-bold;
+    }
 }
 
 @mixin fontSet__sectionHeader {
-    font-size: 36px;
-    line-height: 44px;
+    font-size: 24px;
+    line-height: 32px;
     font-weight: $fontWeight-bold;
+    @media (min-width: 780px) {
+        font-size: 36px;
+        line-height: 44px;
+        font-weight: $fontWeight-bold;
+    }
 }
 
 @mixin fontSet__subheader {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 14px;
+    line-height: 22px;
     font-weight: $fontWeight-demi;
+    @media (min-width: 780px) {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: $fontWeight-demi;
+    }
 }
 
 @mixin fontSet__bodyCopy {
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 13px;
+    line-height: 18px;
     font-weight: $fontWeight-regular;
+    @media (min-width: 780px) {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: $fontWeight-regular;
+    }
 }
 
 @mixin fontSet__footerCopy {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 13px;
+    line-height: 18px;
     font-weight: $fontWeight-regular;
+    @media (min-width: 780px) {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: $fontWeight-regular;
+    }
 }
 
 @mixin fontSet__labelsButtons {
-    font-size: 12px;
+    font-size: 10px;
     line-height: 20px;
     font-weight: $fontWeight-bold;
+    @media (min-width: 780px) {
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: $fontWeight-bold;
+    }
 }
+
 
 @mixin widthSet ($width, $min-width, $max-width) {  
     width: $width;

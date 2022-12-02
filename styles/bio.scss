@@ -8,6 +8,10 @@
     padding: 0;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body{
     font-family: $fontFamily-regular;
     width: 100%;
@@ -17,10 +21,18 @@ ul {
     list-style: none;
 }
 
+.section-gutter{
+    padding: 0 16px;
+    @media (min-width: 780px){
+        padding: 0 36px;
+    }
+}
+
 .header {
     @include flexboxSet(column, center);
     background-color: $primaryColor-BSBlack;
     color: $primaryColor-White;
+    width: 100%;
     height: 85px;
 }
 
@@ -29,7 +41,7 @@ ul {
     align-items: center;
     height: 100%;
     width: 100%;
-    padding-top: 1rem;;
+    padding-top: 1rem;
     &__logo {
         max-width: 120px;
         max-height: 80px;
@@ -60,7 +72,6 @@ ul {
     @include backgroundImgSet(url(../assets/images/hero-bio.jpg), center, cover);
     height: 27vh;
     position: relative;
-    
     &::before {
         z-index: 1;
         content: "";
@@ -76,7 +87,7 @@ ul {
         height: 100%;
     }
     &__header {
-        @include fontSet__pageHeader-mobile;
+        @include fontSet__pageHeader;
         font-family: $fontFamily-demi;
         position: relative;
         z-index: 2;
@@ -87,9 +98,8 @@ ul {
 
 .about {
     @include flexboxSet(column, center);
-    padding: 0 16px;
     &__header{
-        @include fontSet__pageHeader-mobile;
+        @include fontSet__sectionHeader;
         font-family: 'AveDemi';
         margin-top: 24px;
         
@@ -102,11 +112,11 @@ ul {
         @include flexboxSet(column, space-between);
         gap: .3rem;
         &-quote{
-            @include fontSet__subheader-mobile;
+            @include fontSet__subheader;
             font-family: 'AveDemi';
         }
         &-credits{
-            @include fontSet__subheader-mobile;
+            @include fontSet__subheader;
             font-family: 'AveDemi';
         }
     }
@@ -117,19 +127,18 @@ ul {
             margin-top: 24px;
         }
         &-text1{
-            @include fontSet__bodyCopy-mobile;
+            @include fontSet__bodyCopy;
         }
         &-text2{
-            @include fontSet__bodyCopy-mobile;
+            @include fontSet__bodyCopy;
         }
     }
 }
 
 .photo-gallery {
     @include flexboxSet(column, center);
-    padding: 0 16px;
     &__header{
-        @include fontSet__pageHeader-mobile;
+        @include fontSet__sectionHeader;
         font-family: 'AveDemi';
         margin-top: 24px;
     }
@@ -142,8 +151,7 @@ ul {
 
 .footer {
     @include flexboxSet(column, space-evenly);
-    padding: 0 16px;
-    width: 100%;
+    max-width: 100%;
     background-color: $primaryColor-BSBlack;
     color: white;
     &__social{
@@ -151,7 +159,7 @@ ul {
         gap: 16px;
         margin-top: 24px;
         &-header{
-            @include fontSet__pageHeader-mobile;
+            @include fontSet__sectionHeader;
             font-family: 'AveDemi';
             letter-spacing: .5px;
         }
@@ -162,7 +170,7 @@ ul {
     }
     &__contact{
         @include flexboxSet(column, center);
-        @include fontSet__bodyCopy-mobile;
+        @include fontSet__bodyCopy;
         gap: 16px;
         &-name{
             font-family: 'AveDemi';
@@ -170,7 +178,7 @@ ul {
     }
     &__copywrite{
         @include flexboxSet(column, center);
-        @include fontSet__bodyCopy-mobile;
+        @include fontSet__bodyCopy;
         gap: 16px;
         margin-top: 56px;
     }
