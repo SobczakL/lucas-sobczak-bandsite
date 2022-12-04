@@ -8,54 +8,59 @@
     padding: 0;
 }
 
-html, body {
-    overflow-x: hidden;
-}
-
-body{
+html {
+    font-size: 16px;
     font-family: $fontFamily-regular;
     width: 100%;
+    overflow-x: hidden;
 }
 
 ul {
     list-style: none;
 }
 
-.section-gutter{
-    padding: 0 16px;
-    @media (min-width: 780px){
-        padding: 0 36px;
-    }
-}
-
 .header {
-    @include flexboxSet(column, center);
+    @include flexboxSet(column, center, null);
+    @include widthSet(100%, null, null);
     background-color: $primaryColor-BSBlack;
     color: $primaryColor-White;
-    width: 100%;
     height: 85px;
 }
 
 .nav {
-    @include flexboxSet(column, space-between);
+    @include flexboxSet(column, space-between, 1rem);
+    @include heightSet(100%, null, null);
+    @include widthSet(100%, null, null);
     align-items: center;
-    height: 100%;
-    width: 100%;
     padding-top: 1rem;
+    @media (min-width: $screenBreak-tablet){
+        @include flexboxSet(row, flex-start, 2rem);
+        padding-top: 0;
+    }
     &__logo {
+        @include sectionMargin;
         max-width: 120px;
         max-height: 80px;
     }
     &__links {
-        @include flexboxSet(row, space-between);
-        width: 100%;
-        height: 50%;
+        @include flexboxSet(row, space-between, null);
+        @include heightSet(50%, null, null);
+        @include widthSet(100%, null, null);
+        @media (min-width: $screenBreak-tablet){
+            @include flexboxSet(row, flex-start, 2rem);
+            @include heightSet(100%, null, null);
+        }
     }
     &__link {
+        @include fontSet__bodyCopy;
+        @include heightSet(100%, null, null);
+        @include widthSet(50%, null, null);
         box-sizing: border-box;
         text-align: center;
-        width: 50%;
-        height: 100%;
+        @media (min-width: $screenBreak-tablet){
+            @include flexboxSet(column, center, 2rem);
+            @include widthSet(5rem, null, null);
+        }
     }
     &__bio {
         font-family: 'AveDemi';
@@ -70,47 +75,56 @@ ul {
 
 .hero {
     @include backgroundImgSet(url(../assets/images/hero-bio.jpg), center, cover);
-    height: 27vh;
+    @include heightSet(12rem, 12rem, null);
     position: relative;
+    @media (min-width: $screenBreak-tablet){
+        @include heightSet(30rem, null, null);
+    }
     &::before {
+        @include heightSet(100%, null, null);
+        @include widthSet(100%, null, null);
         z-index: 1;
         content: "";
         position: absolute;
-        width: 100%;
-        height: 100%;
         background-color: $primaryColor-BSBlack;
-        opacity: .4;
+        opacity: .5;
     }
     &__container{
-        @include flexboxSet(column, center);
-        width: 100%;
-        height: 100%;
+        @include flexboxSet(column, center, null);
+        @include heightSet(100%, null, null);
+        @include widthSet(100%, null, null);
     }
     &__header {
         @include fontSet__pageHeader;
+        @include sectionMargin;
+        max-width: fit-content;
         font-family: $fontFamily-demi;
-        position: relative;
         z-index: 2;
         color: $primaryColor-White;
-        left: 1rem;
     }
 }
 
 .about {
-    @include flexboxSet(column, center);
+    @include flexboxSet(column, center, 1rem);
+    @include sectionMargin;
     &__header{
         @include fontSet__sectionHeader;
+        @include sectionHeader;
         font-family: 'AveDemi';
-        margin-top: 24px;
         
     }
     &__img{
-        margin: 16px 0;
-        max-height: 200px;
+        @include widthSet(100%, null, null);
+        // aspect-ratio: 16/9;
+        @media (min-width: $screenBreak-tablet) {
+            @include sectionMargin;
+        }
     }
     &__caption{
-        @include flexboxSet(column, space-between);
-        gap: .3rem;
+        @include flexboxSet(column, space-between, .5rem);
+        @media (min-width: $screenBreak-tablet) {
+            @include sectionMargin;
+        }
         &-quote{
             @include fontSet__subheader;
             font-family: 'AveDemi';
@@ -121,65 +135,122 @@ ul {
         }
     }
     &__container{
-        @include flexboxSet(column, center);
-        gap: 1rem;
+        @include flexboxSet(column, center, 1rem);
         &-subheader{
-            margin-top: 24px;
+            @include fontSet__subheader;
+            @include sectionHeader;
+            font-weight: $fontWeight-bold;
         }
-        &-text1{
+        &-content{
+            @include flexboxSet(column, center, 1rem);
             @include fontSet__bodyCopy;
-        }
-        &-text2{
-            @include fontSet__bodyCopy;
+            @media (min-width: $screenBreak-tablet){
+                @include flexboxSet(row, center, 1.5rem);
+            }
         }
     }
 }
 
-.photo-gallery {
-    @include flexboxSet(column, center);
+.photoGallery {
+    @include flexboxSet(column, center, 1rem);
+    @include sectionMargin;
+    @media (min-width: $screenBreak-tablet) {
+        @include flexboxSet(column, center, 2.25rem);
+    }
     &__header{
         @include fontSet__sectionHeader;
+        @include sectionHeader;
         font-family: 'AveDemi';
-        margin-top: 24px;
     }
     &__column{
-        @include flexboxSet(column, space-evenly);
-        gap: 16px;
-        margin: 16px 0;
+        @include flexboxSet(column, center, 1rem);
+        margin-bottom: 1rem;
+        @media (min-width: $screenBreak-tablet){
+            display: grid;
+            grid-template-columns: repeat(3, minmax(13rem, 1fr));
+            grid-gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+    }
+    &-img{
+        @include widthSet(100%, null, null);
+        object-fit: cover;
+        height: auto;
+        @media (min-width: $screenBreak-tablet){
+            @include widthSet(100%, 13rem, auto);
+        }
     }
 }
 
 .footer {
-    @include flexboxSet(column, space-evenly);
-    max-width: 100%;
+    @include flexboxSet(column, space-evenly, 1rem);
+    @include widthSet(100%, null, null);
     background-color: $primaryColor-BSBlack;
     color: white;
+    position: relative;
+    &__container{
+        @include sectionMargin;
+    }
     &__social{
-        @include flexboxSet(column, space-evenly);
-        gap: 16px;
-        margin-top: 24px;
+        @include flexboxSet(column, space-evenly, 1rem);
+        @media (min-width: $screenBreak-tablet){
+            @include flexboxSet(row, flex-start, 2rem);
+            align-items: baseline;
+        }
         &-header{
             @include fontSet__sectionHeader;
+            @include sectionHeader;
             font-family: 'AveDemi';
             letter-spacing: .5px;
         }
-        &-icons{
-            @include flexboxSet(row, flex-start);
-            gap: 2rem;
+        &-links{
+            @include flexboxSet(row, flex-start, 2rem);
+            height: 50%;
+        }
+        &-link{
+            height: 100%;
         }
     }
     &__contact{
-        @include flexboxSet(column, center);
+        @include flexboxSet(column, center, 1rem);
         @include fontSet__bodyCopy;
-        gap: 16px;
+        @media (min-width: $screenBreak-tablet){
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            // @include flexboxSet(row, flex-start, 2.25rem);
+        }
+        &-container{
+            @include flexboxSet(column, center, 1rem);
+            @media (min-width: $screenBreak-tablet){
+                @include sectionHeader;
+                @include flexboxSet(column, center, 1.5rem);
+            }
+        }
         &-name{
             font-family: 'AveDemi';
         }
     }
     &__copywrite{
-        @include flexboxSet(column, center);
+        @include flexboxSet(column, center, 1rem);
         @include fontSet__bodyCopy;
-        gap: 16px;
+        position: relative;
         margin-top: 56px;
+        &-text{
+            @include sectionMargin;
+        }
+    }
+    &__copyright-logo{
+        margin-top: 3.5rem;
+        @media (min-width: $screenBreak-tablet){
+            margin: 0;
+            position: absolute;
+            top: 3.75rem;
+            right: 2.25rem;
+        }
+    }
+    &__copyright-text{
+        @include sectionMargin;
+        @include fontSet__footerCopy;
     }
 }
+

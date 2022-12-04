@@ -66,6 +66,30 @@
     }
 }
 
+@mixin sectionMargin{
+    margin: 0 1rem;
+    @media (min-width: $screenBreak-tablet){
+        margin: 0 2.25rem;
+    }
+    @media (min-width: $screenBreak-desktop){
+        margin: 0 auto;
+        padding: 0 4rem;
+    }
+}
+
+@mixin contentGutter{
+    padding: 1rem 0;
+    @media (min-width: $screenBreak-tablet) {
+        padding: 1.5rem 0;
+    }
+}
+
+@mixin sectionHeader {
+    margin-top: 1.5rem;
+    @media (min-width: $screenBreak-tablet){
+        margin-top: 3rem;
+    }
+}
 
 @mixin widthSet ($width, $min-width, $max-width) {  
     width: $width;
@@ -80,24 +104,15 @@
     max-height: $max-height;
 }
 
-@mixin flexboxSet($direction, $jContent) {
+@mixin flexboxSet($direction, $jContent, $gap) {
     display: flex;
     flex-direction: $direction;
     justify-content: $jContent;
+    gap: $gap;
 }
 
 @mixin backgroundImgSet($url, $position, $size){
     background-image: $url;
     background-position: $position;
     background-size: $size;
-}
-
-@mixin screenSize-mobile {
-    @media (max-width: 767px) { @content; }
-}
-@mixin screenSize-tablet {
-    @media (min-width: 780px) {@content; }
-}
-@mixin screenSize-desktop {
-    @media (min-width: 1280px) {@content; }
 }
