@@ -15,6 +15,14 @@ html {
     overflow-x: hidden;
 }
 
+a {
+    text-decoration: none;
+    color: $primaryColor-White;
+    &:active{
+        color: $primaryColor-White;
+    }
+}
+
 ul {
     list-style: none;
 }
@@ -30,25 +38,25 @@ ul {
 .nav {
     @include flexboxSet(column, space-between, 1rem);
     @include heightSet(100%, null, null);
-    @include widthSet(100%, null, null);
     align-items: center;
     padding-top: 1rem;
     @media (min-width: $screenBreak-tablet){
-        @include flexboxSet(row, flex-start, 2rem);
+        @include flexboxSet(row, flex-start, 2.25rem);
+        @include sectionMargin;
         padding-top: 0;
     }
     &__logo {
-        @include sectionMargin;
         max-width: 120px;
         max-height: 80px;
     }
     &__links {
         @include flexboxSet(row, space-between, null);
         @include heightSet(50%, null, null);
-        @include widthSet(100%, null, null);
+        width: 100%;
         @media (min-width: $screenBreak-tablet){
-            @include flexboxSet(row, flex-start, 2rem);
+            @include flexboxSet(row, flex-start, 2.25rem);
             @include heightSet(100%, null, null);
+            @include widthSet(null, null, null);
         }
     }
     &__link {
@@ -65,6 +73,12 @@ ul {
     &__bio {
         font-family: 'AveDemi';
         border-bottom: solid 4px $primaryColor-White;
+        &:active{
+            border-bottom: solid 4px $primaryColor-White;
+        }
+        &:hover{
+            border-bottom: solid 4px $primaryColor-White;
+        }
     }
     &__shows{
         &:hover{
@@ -97,10 +111,13 @@ ul {
     &__header {
         @include fontSet__pageHeader;
         @include sectionMargin;
-        max-width: fit-content;
+        width: fit-content;
         font-family: $fontFamily-demi;
         z-index: 2;
         color: $primaryColor-White;
+        @media (min-width: $screenBreak-desktop){
+            width: 100%;
+        }
     }
 }
 
@@ -114,10 +131,9 @@ ul {
         
     }
     &__img{
-        @include widthSet(100%, null, null);
-        // aspect-ratio: 16/9;
+        aspect-ratio: 16/9;
         @media (min-width: $screenBreak-tablet) {
-            @include sectionMargin;
+            padding: 0 2.25rem;
         }
     }
     &__caption{
@@ -176,8 +192,12 @@ ul {
         @include widthSet(100%, null, null);
         object-fit: cover;
         height: auto;
+        filter:grayscale(100%);
         @media (min-width: $screenBreak-tablet){
             @include widthSet(100%, 13rem, auto);
+        }
+        &:hover{
+            filter: grayscale(0%);
         }
     }
 }
@@ -187,9 +207,9 @@ ul {
     @include widthSet(100%, null, null);
     background-color: $primaryColor-BSBlack;
     color: white;
-    position: relative;
     &__container{
         @include sectionMargin;
+        position: relative;
     }
     &__social{
         @include flexboxSet(column, space-evenly, 1rem);
@@ -214,10 +234,10 @@ ul {
     &__contact{
         @include flexboxSet(column, center, 1rem);
         @include fontSet__bodyCopy;
+        @include sectionHeader;
         @media (min-width: $screenBreak-tablet){
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            // @include flexboxSet(row, flex-start, 2.25rem);
         }
         &-container{
             @include flexboxSet(column, center, 1rem);
@@ -230,17 +250,10 @@ ul {
             font-family: 'AveDemi';
         }
     }
-    &__copywrite{
-        @include flexboxSet(column, center, 1rem);
-        @include fontSet__bodyCopy;
-        position: relative;
-        margin-top: 56px;
-        &-text{
-            @include sectionMargin;
-        }
-    }
     &__copyright-logo{
         margin-top: 3.5rem;
+        max-width: 120px;
+        max-height: 80px;
         @media (min-width: $screenBreak-tablet){
             margin: 0;
             position: absolute;
@@ -251,6 +264,9 @@ ul {
     &__copyright-text{
         @include sectionMargin;
         @include fontSet__footerCopy;
+        margin-top: 1rem;
+        @media (min-width: $screenBreak-tablet){
+            margin-top: 2.25rem;
+        }
     }
 }
-

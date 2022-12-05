@@ -73,7 +73,8 @@
     }
     @media (min-width: $screenBreak-desktop){
         margin: 0 auto;
-        padding: 0 4rem;
+        @include widthSet(100%, null, 1280px)
+        // padding: 0 4rem;
     }
 }
 
