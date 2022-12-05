@@ -1,0 +1,19 @@
+@use './fonts' as *;
+
+$primaryColor-BSBlack: #323232;
+$primaryColor-Silver: #AFAFAF;
+$primaryColor-White: #FFFFFF;
+$secondaryColor-BSDarkBlack: #000000;
+$secondaryColor-Mercury: #E1E1E1;
+$secondaryColor-Alabaster: #FAFAFA;
+
+$fontWeight-regular:400;
+$fontWeight-demi:600;
+$fontWeight-bold:700;
+
+$fontFamily-regular: 'AveReg';
+$fontFamily-demi: 'AveDemi';
+$fontFamily-bold: 'AveBold';
+
+$screenBreak-tablet: 780px;
+$screenBreak-desktop: 1280px;

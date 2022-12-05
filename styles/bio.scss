@@ -1,0 +1,272 @@
+@use './partials/fonts' as *;
+@use './partials/variables' as *;
+@use './partials/mixins' as *;
+
+* {
+    // box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    font-family: $fontFamily-regular;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: $primaryColor-White;
+    &:active{
+        color: $primaryColor-White;
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+.header {
+    @include flexboxSet(column, center, null);
+    @include widthSet(100%, null, null);
+    background-color: $primaryColor-BSBlack;
+    color: $primaryColor-White;
+    height: 85px;
+}
+
+.nav {
+    @include flexboxSet(column, space-between, 1rem);
+    @include heightSet(100%, null, null);
+    align-items: center;
+    padding-top: 1rem;
+    @media (min-width: $screenBreak-tablet){
+        @include flexboxSet(row, flex-start, 2.25rem);
+        @include sectionMargin;
+        padding-top: 0;
+    }
+    &__logo {
+        max-width: 120px;
+        max-height: 80px;
+    }
+    &__links {
+        @include flexboxSet(row, space-between, null);
+        @include heightSet(50%, null, null);
+        width: 100%;
+        @media (min-width: $screenBreak-tablet){
+            @include flexboxSet(row, flex-start, 2.25rem);
+            @include heightSet(100%, null, null);
+            @include widthSet(null, null, null);
+        }
+    }
+    &__link {
+        @include fontSet__bodyCopy;
+        @include heightSet(100%, null, null);
+        @include widthSet(50%, null, null);
+        box-sizing: border-box;
+        text-align: center;
+        @media (min-width: $screenBreak-tablet){
+            @include flexboxSet(column, center, 2rem);
+            @include widthSet(5rem, null, null);
+        }
+    }
+    &__bio {
+        font-family: 'AveDemi';
+        border-bottom: solid 4px $primaryColor-White;
+        &:active{
+            border-bottom: solid 4px $primaryColor-White;
+        }
+        &:hover{
+            border-bottom: solid 4px $primaryColor-White;
+        }
+    }
+    &__shows{
+        &:hover{
+            border-bottom: solid 4px $primaryColor-White;
+        }
+    }
+}
+
+.hero {
+    @include backgroundImgSet(url(../assets/images/hero-bio.jpg), center, cover);
+    @include heightSet(12rem, 12rem, null);
+    position: relative;
+    @media (min-width: $screenBreak-tablet){
+        @include heightSet(30rem, null, null);
+    }
+    &::before {
+        @include heightSet(100%, null, null);
+        @include widthSet(100%, null, null);
+        z-index: 1;
+        content: "";
+        position: absolute;
+        background-color: $primaryColor-BSBlack;
+        opacity: .5;
+    }
+    &__container{
+        @include flexboxSet(column, center, null);
+        @include heightSet(100%, null, null);
+        @include widthSet(100%, null, null);
+    }
+    &__header {
+        @include fontSet__pageHeader;
+        @include sectionMargin;
+        width: fit-content;
+        font-family: $fontFamily-demi;
+        z-index: 2;
+        color: $primaryColor-White;
+        @media (min-width: $screenBreak-desktop){
+            width: 100%;
+        }
+    }
+}
+
+.about {
+    @include flexboxSet(column, center, 1rem);
+    @include sectionMargin;
+    &__header{
+        @include fontSet__sectionHeader;
+        @include sectionHeader;
+        font-family: 'AveDemi';
+        
+    }
+    &__img{
+        aspect-ratio: 16/9;
+        @media (min-width: $screenBreak-tablet) {
+            padding: 0 2.25rem;
+        }
+    }
+    &__caption{
+        @include flexboxSet(column, space-between, .5rem);
+        @media (min-width: $screenBreak-tablet) {
+            @include sectionMargin;
+        }
+        &-quote{
+            @include fontSet__subheader;
+            font-family: 'AveDemi';
+        }
+        &-credits{
+            @include fontSet__subheader;
+            font-family: 'AveDemi';
+        }
+    }
+    &__container{
+        @include flexboxSet(column, center, 1rem);
+        &-subheader{
+            @include fontSet__subheader;
+            @include sectionHeader;
+            font-weight: $fontWeight-bold;
+        }
+        &-content{
+            @include flexboxSet(column, center, 1rem);
+            @include fontSet__bodyCopy;
+            @media (min-width: $screenBreak-tablet){
+                @include flexboxSet(row, center, 1.5rem);
+            }
+        }
+    }
+}
+
+.photoGallery {
+    @include flexboxSet(column, center, 1rem);
+    @include sectionMargin;
+    @media (min-width: $screenBreak-tablet) {
+        @include flexboxSet(column, center, 2.25rem);
+    }
+    &__header{
+        @include fontSet__sectionHeader;
+        @include sectionHeader;
+        font-family: 'AveDemi';
+    }
+    &__column{
+        @include flexboxSet(column, center, 1rem);
+        margin-bottom: 1rem;
+        @media (min-width: $screenBreak-tablet){
+            display: grid;
+            grid-template-columns: repeat(3, minmax(13rem, 1fr));
+            grid-gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+    }
+    &-img{
+        @include widthSet(100%, null, null);
+        object-fit: cover;
+        height: auto;
+        filter:grayscale(100%);
+        @media (min-width: $screenBreak-tablet){
+            @include widthSet(100%, 13rem, auto);
+        }
+        &:hover{
+            filter: grayscale(0%);
+        }
+    }
+}
+
+.footer {
+    @include flexboxSet(column, space-evenly, 1rem);
+    @include widthSet(100%, null, null);
+    background-color: $primaryColor-BSBlack;
+    color: white;
+    &__container{
+        @include sectionMargin;
+        position: relative;
+    }
+    &__social{
+        @include flexboxSet(column, space-evenly, 1rem);
+        @media (min-width: $screenBreak-tablet){
+            @include flexboxSet(row, flex-start, 2rem);
+            align-items: baseline;
+        }
+        &-header{
+            @include fontSet__sectionHeader;
+            @include sectionHeader;
+            font-family: 'AveDemi';
+            letter-spacing: .5px;
+        }
+        &-links{
+            @include flexboxSet(row, flex-start, 2rem);
+            height: 50%;
+        }
+        &-link{
+            height: 100%;
+        }
+    }
+    &__contact{
+        @include flexboxSet(column, center, 1rem);
+        @include fontSet__bodyCopy;
+        @include sectionHeader;
+        @media (min-width: $screenBreak-tablet){
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        &-container{
+            @include flexboxSet(column, center, 1rem);
+            @media (min-width: $screenBreak-tablet){
+                @include sectionHeader;
+                @include flexboxSet(column, center, 1.5rem);
+            }
+        }
+        &-name{
+            font-family: 'AveDemi';
+        }
+    }
+    &__copyright-logo{
+        margin-top: 3.5rem;
+        max-width: 120px;
+        max-height: 80px;
+        @media (min-width: $screenBreak-tablet){
+            margin: 0;
+            position: absolute;
+            top: 3.75rem;
+            right: 2.25rem;
+        }
+    }
+    &__copyright-text{
+        @include sectionMargin;
+        @include fontSet__footerCopy;
+        margin-top: 1rem;
+        @media (min-width: $screenBreak-tablet){
+            margin-top: 2.25rem;
+        }
+    }
+}

@@ -1,0 +1,119 @@
+@use './variables' as *;
+
+@mixin fontSet__pageHeader {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: $fontWeight-bold;
+    @media (min-width: 780px) {
+        font-size: 60px;
+        line-height: 68px;
+        font-weight: $fontWeight-bold;
+    }
+}
+
+@mixin fontSet__sectionHeader {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: $fontWeight-bold;
+    @media (min-width: 780px) {
+        font-size: 36px;
+        line-height: 44px;
+        font-weight: $fontWeight-bold;
+    }
+}
+
+@mixin fontSet__subheader {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: $fontWeight-demi;
+    @media (min-width: 780px) {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: $fontWeight-demi;
+    }
+}
+
+@mixin fontSet__bodyCopy {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: $fontWeight-regular;
+    @media (min-width: 780px) {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: $fontWeight-regular;
+    }
+}
+
+@mixin fontSet__footerCopy {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: $fontWeight-regular;
+    @media (min-width: 780px) {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: $fontWeight-regular;
+    }
+}
+
+@mixin fontSet__labelsButtons {
+    font-size: 10px;
+    line-height: 20px;
+    font-weight: $fontWeight-bold;
+    @media (min-width: 780px) {
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: $fontWeight-bold;
+    }
+}
+
+@mixin sectionMargin{
+    margin: 0 1rem;
+    @media (min-width: $screenBreak-tablet){
+        margin: 0 2.25rem;
+    }
+    @media (min-width: $screenBreak-desktop){
+        margin: 0 auto;
+        @include widthSet(100%, null, 1280px)
+        // padding: 0 4rem;
+    }
+}
+
+@mixin contentGutter{
+    padding: 1rem 0;
+    @media (min-width: $screenBreak-tablet) {
+        padding: 1.5rem 0;
+    }
+}
+
+@mixin sectionHeader {
+    margin-top: 1.5rem;
+    @media (min-width: $screenBreak-tablet){
+        margin-top: 3rem;
+    }
+}
+
+@mixin widthSet ($width, $min-width, $max-width) {  
+    width: $width;
+    min-width: $min-width;
+    max-width: $max-width;
+    
+}
+
+@mixin heightSet ($height, $min-height, $max-height) {  
+    height: $height;
+    min-height: $min-height;
+    max-height: $max-height;
+}
+
+@mixin flexboxSet($direction, $jContent, $gap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $jContent;
+    gap: $gap;
+}
+
+@mixin backgroundImgSet($url, $position, $size){
+    background-image: $url;
+    background-position: $position;
+    background-size: $size;
+}
