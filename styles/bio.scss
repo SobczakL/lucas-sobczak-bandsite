@@ -3,7 +3,6 @@
 @use './partials/mixins' as *;
 
 * {
-    // box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -27,6 +26,7 @@ ul {
     list-style: none;
 }
 
+//  HEADER SECTION
 .header {
     @include flexboxSet(column, center, null);
     @include widthSet(100%, null, null);
@@ -87,13 +87,14 @@ ul {
     }
 }
 
+//  HERO SECTION
 .hero {
     @include backgroundImgSet(url(../assets/images/hero-bio.jpg), center, cover);
     @include heightSet(12rem, 12rem, null);
     position: relative;
     @media (min-width: $screenBreak-tablet){
         @include heightSet(30rem, null, null);
-    }
+    }// pseudo added to create the shadowed window for the background image.
     &::before {
         @include heightSet(100%, null, null);
         @include widthSet(100%, null, null);
@@ -121,6 +122,7 @@ ul {
     }
 }
 
+//  ABOUT SECTION: Concert photo and caption + about article.
 .about {
     @include flexboxSet(column, center, 1rem);
     @include sectionMargin;
@@ -167,6 +169,7 @@ ul {
     }
 }
 
+//  PHOTO GALLERY
 .photoGallery {
     @include flexboxSet(column, center, 1rem);
     @include sectionMargin;
@@ -202,6 +205,155 @@ ul {
     }
 }
 
+//  COMMENT SECTION
+//  Comment form for user to interact with to create a new comment.
+.comments{
+    @include flexboxSet(column, space-between, null);
+    @include sectionMargin;
+    &__header{
+        @include fontSet__sectionHeader;
+        @include sectionHeader;
+        font-family: 'AveDemi';
+    }
+    &__form{
+        @include flexboxSet(row, center, 1rem);
+        @include widthSet(null, null, null);
+        @include sectionHeader;
+        @media (min-width: $screenBreak-tablet) {
+            @include sectionMargin;
+        }
+        &-img{
+            @include widthSet(36px, 36px, 36px);
+            @include heightSet(36px, 36px, 36px);
+            @include backgroundImgSet(url(../assets/images/Mohan-muruge.jpg), center, cover);
+            margin-top: 1.5rem;
+            border-radius: 50%;
+            @media (min-width: $screenBreak-tablet){
+                @include widthSet(48px, 48px, 48px);
+                @include heightSet(48px, 48px, 48px);
+            }
+        }
+        input:focus{
+            border: $primaryColor-BSBlack;
+        }
+        &-container{
+            @include flexboxSet(column, center, null);
+            @include widthSet(100%, null, null);
+        }
+        &-name{
+            @include fontSet__labelsButtons;
+            color: $primaryColor-Silver;
+            margin-bottom: 4px;
+            &--input{
+                @include fontSet__bodyCopy;
+                font-family: $fontFamily-regular;
+                color: $primaryColor-BSBlack;
+                padding: 12px;
+                border: 1px solid $secondaryColor-Mercury;
+                border-radius: 4px;
+                background-color: #FAFAFA;
+                margin-bottom: 1rem;
+                &:focus{
+                    outline: 1px solid $primaryColor-BSBlack;
+                }
+                &::placeholder{
+                    color: $primaryColor-BSBlack;
+                }
+            }
+        } 
+
+        //  Comment styling for past and future comments.
+        &-comment{
+            @include fontSet__labelsButtons;
+            color: $primaryColor-Silver;
+            margin-bottom: 4px;
+            &--input{
+                @include fontSet__bodyCopy;
+                font-family: $fontFamily-regular;
+                height: 4rem;
+                color: $primaryColor-BSBlack;
+                padding: 12px;
+                border: 1px solid $secondaryColor-Mercury;
+                border-radius: 4px;
+                background-color: #FAFAFA;
+                margin-bottom: 1rem;
+                &:focus{
+                    outline: 1px solid $primaryColor-BSBlack;
+                }
+                &::placeholder{
+                    color: $primaryColor-BSBlack;
+                }
+            }
+        }
+        &--submit{
+            @include heightSet(40px, null, 40px);
+            background-color: $primaryColor-BSBlack;
+            color: $primaryColor-White;
+            border-radius: 4px;
+        }
+    }
+    &__break{
+        stroke-width: 1px;
+        margin: 1rem 0;
+        color: $secondaryColor-Mercury;
+        @media (min-width: $screenBreak-tablet){
+            @include sectionMargin;
+        }
+    }
+}
+//  Styling for elements created using DOM manipulation with functions found in index-page.js.
+
+.comment{
+    @media (min-width: $screenBreak-tablet){
+        @include sectionMargin;
+    }
+    &__content{
+        @include flexboxSet(row, center, 2rem);
+        @include widthSet(100%, null, null);
+        &-img{
+            @include widthSet(36px, 36px, 36px);
+            @include heightSet(36px, 36px, 36px);
+            @include backgroundImgSet(null, center, cover);
+            background-color: $secondaryColor-Mercury;
+            border-radius: 50%;
+            @media (min-width: $screenBreak-tablet){
+                @include widthSet(48px, 48px, 48px);
+                @include heightSet(48px, 48px, 48px);
+            }
+        }
+        &-container{
+            @include flexboxSet(column, center, .5rem);
+            @include fontSet__bodyCopy;
+            @include widthSet(100%, null, null);
+        }
+        &-separator{
+            @include flexboxSet(row, space-between, null)
+        }
+        &-text{
+        }
+        &-name{
+            font-family: $fontFamily-demi;
+            margin-right: auto;
+            color: $primaryColor-BSBlack;
+        }
+        &-date{
+            margin-left: auto;
+            color: $secondaryColor-Mercury;
+        }
+    }
+    &__break{
+        stroke-width: 1px;
+        margin: 1rem 0;
+        color: $secondaryColor-Mercury;
+    }
+}
+
+//  Error state styling for comment input sections. This class is created in index-page.js.
+.error{
+    border: 1px solid #d22d2d;
+}
+
+//  FOOTER SECTION
 .footer {
     @include flexboxSet(column, space-evenly, 1rem);
     @include widthSet(100%, null, null);
@@ -234,7 +386,6 @@ ul {
     &__contact{
         @include flexboxSet(column, center, 1rem);
         @include fontSet__bodyCopy;
-        @include sectionHeader;
         @media (min-width: $screenBreak-tablet){
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;

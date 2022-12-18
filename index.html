@@ -53,6 +53,23 @@
                     <img src="assets/images/Photo-gallery-9.jpg" alt="Photo from concert" class="photoGallery-img">
                 </div>
             </article>
+            <section class="comments">
+                <h2 class="comments__header">Join the Conversation</h2>
+                <div class="comments__form">
+                    <div class="comments__form-img"></div>
+                    <form class="comments__form-container">
+                        <label for="name" class="comments__form-name">NAME</label>
+                        <input name="name" id="name" type="text" class="comments__form-name--input" placeholder="Enter your name" required>
+                        <label for="comment" class="comments__form-comment">COMMENT</label>
+                        <textarea name="comment" id="comment" type="text" class="comments__form-comment--input" placeholder="Add a new comment" required></textarea>
+                        <input name="submit" type="submit" value="COMMENT" class="comments__form--submit">
+                    </form>
+                </div>
+                <hr class="comments__break">
+                <div class="new-comment">
+                    <!-- New comments will be rendered here -->
+                </div>
+            </section>
         </main>
         <footer class="footer">
             <div class="footer__container">
@@ -97,5 +114,6 @@
             </div>
             <div class="footer__copyright-text"><p>Copyright The Bees Knees © 2021 All Rights Reserved</p></div>
         </footer>
+        <script src="./scripts/index-page.js"></script>
     </body>
 </html>

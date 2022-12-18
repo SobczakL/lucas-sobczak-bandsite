@@ -67,14 +67,16 @@
 }
 
 @mixin sectionMargin{
-    margin: 0 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     @media (min-width: $screenBreak-tablet){
-        margin: 0 2.25rem;
+        margin-left: 2.25rem;
+        margin-right: 2.25rem;
     }
     @media (min-width: $screenBreak-desktop){
-        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
         @include widthSet(100%, null, 1280px)
-        // padding: 0 4rem;
     }
 }
 
