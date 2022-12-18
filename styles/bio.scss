@@ -307,12 +307,13 @@ ul {
 .comment{
     @media (min-width: $screenBreak-tablet){
         @include widthSet(100%, null, 640px);
-        padding: 3rem 2.25rem 0 2.25rem;
+        // padding: 3rem 2.25rem 0 2.25rem;
         margin: 0 auto;
     }
     &__content{
         @include flexboxSet(row, center, 2rem);
         @include widthSet(100%, null, null);
+        margin: 1rem 0;
         &-img{
             @include widthSet(36px, 36px, 36px);
             @include heightSet(36px, 36px, 36px);

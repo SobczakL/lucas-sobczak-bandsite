@@ -650,7 +650,6 @@ ul {
   .comment {
     width: 100%;
     max-width: 640px;
-    padding: 3rem 2.25rem 0 2.25rem;
     margin: 0 auto;
   }
 }
@@ -660,6 +659,7 @@ ul {
   justify-content: center;
   gap: 2rem;
   width: 100%;
+  margin: 1rem 0;
 }
 .comment__content-img {
   width: 36px;

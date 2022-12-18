@@ -108,32 +108,42 @@ ul {
         @include flexboxSet(column, center, 1rem);
         @include heightSet(100%, null, 100%);
         @include sectionMargin;
+        @media (min-width: $screenBreak-desktop){
+            @include flexboxSet(row, space-between, null);
+            align-items: center;
+        }
+        &-text{
+            align-items: flex-start;
+            width: fit-content;
+            z-index: 2;
+        }
     }
     &__album{
         @include fontSet__subheader;
         width: fit-content;
-        z-index: 2;
         color: $primaryColor-White;
-        @media (min-width: $screenBreak-desktop){
-            width: 100%;
-        }
+        // @media (min-width: $screenBreak-tablet){
+        //     width: 100%;
+        // }
     }
     &__artist {
         @include fontSet__pageHeader;
         width: fit-content;
         font-family: $fontFamily-demi;
-        z-index: 2;
         color: $primaryColor-White;
-        @media (min-width: $screenBreak-desktop){
-            width: 100%;
-        }
+        // @media (min-width: $screenBreak-tablet){
+        //     width: 100%;
+        // }
     }
     &__song{
-        @include widthSet(null, null, 290px);
+        @include widthSet(290, null, 290px);
         @include heightSet(null, null, 120px);
         z-index: 2;
         @media (min-width: $screenBreak-tablet){
-            @include widthSet(null, null, 400px)
+            @include widthSet(400px, null, 400px)
+        }
+        @media (min-width: $screenBreak-desktop){
+            @include widthSet(420px, null, 420px)
         }
     }
 }
@@ -141,11 +151,23 @@ ul {
 //  SHOWS SECTION
 .shows {
     @include flexboxSet(column, center, 1rem);
+    @media (min-width: $screenBreak-tablet){
+        padding-bottom: 2.25rem;
+    }
+    @media (min-width: $screenBreak-desktop){
+        @include flexboxSet(row, space-between, null);
+        @include sectionMargin;
+    }
     &__header{
         @include fontSet__sectionHeader;
         @include sectionHeader;
         @include sectionMargin;
         font-family: 'AveDemi';
+        @media (min-width: $screenBreak-desktop){
+            width: fit-content;
+            margin-left: 0;
+            margin-right: 0;
+        }
     }
 }
 
@@ -153,11 +175,31 @@ ul {
 .show{
     @include flexboxSet(column, space-between, 1rem);
     @media (min-width: $screenBreak-tablet){
-        @include flexboxSet(row, space-evenly, null);
-        @include sectionMargin
+        @include flexboxSet(row, center, null);
+        padding: 0 1rem;
+        box-sizing: border-box;
+        height: 80px;
+        width: 100%;
+        &:hover{
+            background-color: $secondaryColor-Alabaster;
+        }
+        &:active{
+            background-color: $secondaryColor-Mercury;
+        }
+    }
+
+    &-dates{
+        width: 100%;
+        @media (min-width: $screenBreak-desktop){
+            @include sectionHeader;
+            width: 75%;
+        }
     }
     &__divider{
         margin: 1rem 0;
+        @media (min-width: $screenBreak-tablet){
+            margin: 0;
+        }
     }
     &__info{
         @include flexboxSet(column, space-between, .5rem);
@@ -166,7 +208,6 @@ ul {
             width: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            // @include flexboxSet(row, space-between, null);
         }
     }
     &__date{
@@ -180,6 +221,7 @@ ul {
         }
         &-item{
             @include widthSet(25%, null, null);
+            @include flexboxSet(column, center, null);
         }
     }
     &__venue{
@@ -200,28 +242,45 @@ ul {
             @include fontSet__bodyCopy;
         }
     }
+    &__btnContainer{
+        @include flexboxSet(column, center, null);
+        @include widthSet(25%, null, 25%);
+    }
     &__btn{
         @include heightSet(40px, null, 40px);
         @include sectionMargin;
         border-radius: 4px;
         background-color: $primaryColor-BSBlack;
+        cursor: pointer;
         color: $primaryColor-White;
         @media (min-width: $screenBreak-tablet){
-            @include widthSet(25%, 150px, null);
-            margin: 0;
+            @include widthSet(null, 150px, 150px);
+            margin: 0 auto;
         }
     }
     &__headers{
-        @include sectionMargin;
         @include flexboxSet(row, space-between, 1rem);
+        box-sizing: border-box;
+        margin-bottom: 1rem;
         &-item{
-            @include widthSet(25%, null, null);
+            @include widthSet(25%, null, 25%);
+            // padding: 0 1rem;
+        }
+        @media (min-width: $screenBreak-tablet){
+            padding: 0 1rem;
         }
     }
     &__divider{
         stroke-width: 1px;
         color: $secondaryColor-Mercury;
+        opacity: .25;
         @media (min-width: $screenBreak-tablet){
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+        @media (min-width: $screenBreak-desktop){
+            margin-left: 0;
+            margin-right: 0;
         }
     }
 }

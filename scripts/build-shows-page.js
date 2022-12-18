@@ -18,6 +18,7 @@ const screenWidth = window.screen.width;
 //createShow creates html elements and sets element values pull from shows array
 function createShow(show){
     const showEl = document.createElement("div");
+    const showBtnContainer = document.createElement("div");
     const showBtn = document.createElement("button");
     const showInfo = document.createElement("div");
     const showDateContainer = document.createElement("div");
@@ -32,6 +33,7 @@ function createShow(show){
     const showHeaders = document.createElement("div");
     
     showEl.classList.add("show")
+    showBtnContainer.classList.add("show__btnContainer")
     showBtn.classList.add("show__btn");
     showInfo.classList.add("show__info");
     showDateContainer.classList.add("show__date", "show__date-item");
@@ -58,8 +60,8 @@ function createShow(show){
         showDateContainer.append(showDateInfo);
         showVenueContainer.append(showVenueInfo);
         showLocationContainer.append(showLocationInfo);
-        // showInfo.append(showDateContainer, showVenueContainer, showLocationContainer);
-        showEl.append(showDateContainer, showVenueContainer, showLocationContainer, showBtn)
+        showBtnContainer.append(showBtn);
+        showEl.append(showDateContainer, showVenueContainer, showLocationContainer, showBtnContainer);
 
         return showEl;
     } else {
@@ -112,14 +114,4 @@ function renderShow(){
     }
 }
 
-// function showsHeaderTablet(){
-//     if(screenWidth > 779){
-//         const showInfo = document.querySelector(".show__info");
-//         const showHeadersWidth = document.querySelector(".show__headers");
-//         const showInfoWidth = showInfo.offsetWidth;
-//         showHeadersWidth.style.width = showInfoWidth + "px";
-//     }
-// }
-
 renderShow();
-showsHeaderTablet();
