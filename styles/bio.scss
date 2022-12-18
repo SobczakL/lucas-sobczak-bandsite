@@ -363,6 +363,7 @@ ul {
     background-color: $primaryColor-BSBlack;
     color: white;
     &__container{
+        @include flexboxSet(column, flex-start, 1rem);
         @include sectionMargin;
         position: relative;
     }
@@ -390,6 +391,7 @@ ul {
         @include flexboxSet(column, center, 1rem);
         @include fontSet__bodyCopy;
         @media (min-width: $screenBreak-tablet){
+            max-width: 780px;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
         }
@@ -397,7 +399,7 @@ ul {
             @include flexboxSet(column, center, 1rem);
             @media (min-width: $screenBreak-tablet){
                 @include sectionHeader;
-                @include flexboxSet(column, center, 1.5rem);
+                @include flexboxSet(column, flex-start, 1.5rem);
             }
         }
         &-name{

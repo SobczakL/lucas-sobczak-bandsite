@@ -123,14 +123,14 @@ ul {
     width: 5rem;
   }
 }
-.nav__bio {
+.nav__bio:hover {
+  border-bottom: solid 4px #FFFFFF;
+}
+.nav__shows {
   font-family: "AveDemi";
   border-bottom: solid 4px #FFFFFF;
 }
-.nav__bio:active {
-  border-bottom: solid 4px #FFFFFF;
-}
-.nav__bio:hover {
+.nav__shows:active {
   border-bottom: solid 4px #FFFFFF;
 }
 .nav__shows:hover {
@@ -138,11 +138,13 @@ ul {
 }
 
 .hero {
-  background-image: url(../assets/images/hero-bio.jpg);
+  background-image: url(../assets/images/hero-shows.jpg);
   background-position: center;
   background-size: cover;
-  height: 12rem;
-  min-height: 12rem;
+  width: 100%;
+  max-width: 100%;
+  height: 300px;
+  min-height: 300px;
   position: relative;
 }
 @media (min-width: 780px) {
@@ -163,15 +165,52 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 1rem;
   height: 100%;
-  width: 100%;
+  max-height: 100%;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
-.hero__header {
+@media (min-width: 780px) {
+  .hero__container {
+    margin-left: 2.25rem;
+    margin-right: 2.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero__container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1100px;
+  }
+}
+.hero__album {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 600;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  z-index: 2;
+  color: #FFFFFF;
+}
+@media (min-width: 780px) {
+  .hero__album {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+  }
+}
+@media (min-width: 1280px) {
+  .hero__album {
+    width: 100%;
+  }
+}
+.hero__artist {
   font-size: 24px;
   line-height: 32px;
   font-weight: 700;
-  margin-left: 1rem;
-  margin-right: 1rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -180,33 +219,29 @@ ul {
   color: #FFFFFF;
 }
 @media (min-width: 780px) {
-  .hero__header {
+  .hero__artist {
     font-size: 60px;
     line-height: 68px;
     font-weight: 700;
   }
 }
+@media (min-width: 1280px) {
+  .hero__artist {
+    width: 100%;
+  }
+}
+.hero__song {
+  max-width: 290px;
+  max-height: 120px;
+  z-index: 2;
+}
 @media (min-width: 780px) {
-  .hero__header {
-    margin-left: 2.25rem;
-    margin-right: 2.25rem;
-  }
-}
-@media (min-width: 1280px) {
-  .hero__header {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 1100px;
-  }
-}
-@media (min-width: 1280px) {
-  .hero__header {
-    width: 100%;
+  .hero__song {
+    max-width: 400px;
   }
 }
 
-.about {
+.shows {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -215,20 +250,20 @@ ul {
   margin-right: 1rem;
 }
 @media (min-width: 780px) {
-  .about {
+  .shows {
     margin-left: 2.25rem;
     margin-right: 2.25rem;
   }
 }
 @media (min-width: 1280px) {
-  .about {
+  .shows {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
     max-width: 1100px;
   }
 }
-.about__header {
+.shows__header {
   font-size: 24px;
   line-height: 32px;
   font-weight: 700;
@@ -236,128 +271,19 @@ ul {
   font-family: "AveDemi";
 }
 @media (min-width: 780px) {
-  .about__header {
+  .shows__header {
     font-size: 36px;
     line-height: 44px;
     font-weight: 700;
   }
 }
 @media (min-width: 780px) {
-  .about__header {
+  .shows__header {
     margin-top: 3rem;
-  }
-}
-.about__img {
-  aspect-ratio: 16/9;
-}
-@media (min-width: 780px) {
-  .about__img {
-    padding: 0 2.25rem;
-  }
-}
-.about__caption {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-@media (min-width: 780px) {
-  .about__caption {
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
-}
-@media (min-width: 780px) and (min-width: 780px) {
-  .about__caption {
-    margin-left: 2.25rem;
-    margin-right: 2.25rem;
-  }
-}
-@media (min-width: 780px) and (min-width: 1280px) {
-  .about__caption {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 1100px;
-  }
-}
-.about__caption-quote {
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 600;
-  font-family: "AveDemi";
-}
-@media (min-width: 780px) {
-  .about__caption-quote {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 600;
-  }
-}
-.about__caption-credits {
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 600;
-  font-family: "AveDemi";
-}
-@media (min-width: 780px) {
-  .about__caption-credits {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 600;
-  }
-}
-.about__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
-}
-.about__container-subheader {
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 600;
-  margin-top: 1.5rem;
-  font-weight: 700;
-}
-@media (min-width: 780px) {
-  .about__container-subheader {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 600;
-  }
-}
-@media (min-width: 780px) {
-  .about__container-subheader {
-    margin-top: 3rem;
-  }
-}
-.about__container-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
-  font-size: 13px;
-  line-height: 18px;
-  font-weight: 400;
-}
-@media (min-width: 780px) {
-  .about__container-content {
-    font-size: 14px;
-    line-height: 22px;
-    font-weight: 400;
-  }
-}
-@media (min-width: 780px) {
-  .about__container-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1.5rem;
   }
 }
 
-footer {
+.footer {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -366,33 +292,33 @@ footer {
   background-color: #323232;
   color: white;
 }
-footer__container {
+.footer__container {
   margin-left: 1rem;
   margin-right: 1rem;
   position: relative;
 }
 @media (min-width: 780px) {
-  footer__container {
+  .footer__container {
     margin-left: 2.25rem;
     margin-right: 2.25rem;
   }
 }
 @media (min-width: 1280px) {
-  footer__container {
+  .footer__container {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
     max-width: 1100px;
   }
 }
-footer__social {
+.footer__social {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   gap: 1rem;
 }
 @media (min-width: 780px) {
-  footer__social {
+  .footer__social {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -400,7 +326,7 @@ footer__social {
     align-items: baseline;
   }
 }
-footer__social-header {
+.footer__social-header {
   font-size: 24px;
   line-height: 32px;
   font-weight: 700;
@@ -409,28 +335,28 @@ footer__social-header {
   letter-spacing: 0.5px;
 }
 @media (min-width: 780px) {
-  footer__social-header {
+  .footer__social-header {
     font-size: 36px;
     line-height: 44px;
     font-weight: 700;
   }
 }
 @media (min-width: 780px) {
-  footer__social-header {
+  .footer__social-header {
     margin-top: 3rem;
   }
 }
-footer__social-links {
+.footer__social-links {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   gap: 2rem;
   height: 50%;
 }
-footer__social-link {
+.footer__social-link {
   height: 100%;
 }
-footer__contact {
+.footer__contact {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -440,26 +366,27 @@ footer__contact {
   font-weight: 400;
 }
 @media (min-width: 780px) {
-  footer__contact {
+  .footer__contact {
     font-size: 14px;
     line-height: 22px;
     font-weight: 400;
   }
 }
 @media (min-width: 780px) {
-  footer__contact {
+  .footer__contact {
+    max-width: 780px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-footer__contact-container {
+.footer__contact-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
 }
 @media (min-width: 780px) {
-  footer__contact-container {
+  .footer__contact-container {
     margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -468,27 +395,27 @@ footer__contact-container {
   }
 }
 @media (min-width: 780px) and (min-width: 780px) {
-  footer__contact-container {
+  .footer__contact-container {
     margin-top: 3rem;
   }
 }
-footer__contact-name {
+.footer__contact-name {
   font-family: "AveDemi";
 }
-footer__copyright-logo {
+.footer__copyright-logo {
   margin-top: 3.5rem;
   max-width: 120px;
   max-height: 80px;
 }
 @media (min-width: 780px) {
-  footer__copyright-logo {
+  .footer__copyright-logo {
     margin: 0;
     position: absolute;
     top: 3.75rem;
     right: 2.25rem;
   }
 }
-footer__copyright-text {
+.footer__copyright-text {
   margin-left: 1rem;
   margin-right: 1rem;
   font-size: 13px;
@@ -497,13 +424,13 @@ footer__copyright-text {
   margin-top: 1rem;
 }
 @media (min-width: 780px) {
-  footer__copyright-text {
+  .footer__copyright-text {
     margin-left: 2.25rem;
     margin-right: 2.25rem;
   }
 }
 @media (min-width: 1280px) {
-  footer__copyright-text {
+  .footer__copyright-text {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -511,14 +438,14 @@ footer__copyright-text {
   }
 }
 @media (min-width: 780px) {
-  footer__copyright-text {
+  .footer__copyright-text {
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
   }
 }
 @media (min-width: 780px) {
-  footer__copyright-text {
+  .footer__copyright-text {
     margin-top: 2.25rem;
   }
-}/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=shows.css.map */

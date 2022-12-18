@@ -734,6 +734,10 @@ ul {
   color: white;
 }
 .footer__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
   position: relative;
@@ -815,6 +819,7 @@ ul {
 }
 @media (min-width: 780px) {
   .footer__contact {
+    max-width: 780px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -830,7 +835,7 @@ ul {
     margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1.5rem;
   }
 }
