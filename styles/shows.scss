@@ -141,14 +141,91 @@ ul {
 //  SHOWS SECTION
 .shows {
     @include flexboxSet(column, center, 1rem);
-    @include sectionMargin;
     &__header{
         @include fontSet__sectionHeader;
         @include sectionHeader;
+        @include sectionMargin;
         font-family: 'AveDemi';
-        
     }
 }
+
+// SHOW STYLING FOR ELEMENTS CREATED IN build-shows-page,js
+.show{
+    @include flexboxSet(column, space-between, 1rem);
+    @media (min-width: $screenBreak-tablet){
+        @include flexboxSet(row, space-evenly, null);
+        @include sectionMargin
+    }
+    &__divider{
+        margin: 1rem 0;
+    }
+    &__info{
+        @include flexboxSet(column, space-between, .5rem);
+        @include sectionMargin;
+        @media (min-width: $screenBreak-tablet){
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            // @include flexboxSet(row, space-between, null);
+        }
+    }
+    &__date{
+        &-header{
+            @include fontSet__labelsButtons;
+            color: $primaryColor-Silver;
+        }
+        &-info{
+            @include fontSet__bodyCopy;
+            font-family: $fontFamily-demi
+        }
+        &-item{
+            @include widthSet(25%, null, null);
+        }
+    }
+    &__venue{
+        &-header{
+            @include fontSet__labelsButtons;
+            color: $primaryColor-Silver;
+        }
+        &-info{
+            @include fontSet__bodyCopy;
+        }
+    }
+    &__location{
+        &-header{
+            @include fontSet__labelsButtons;
+            color: $primaryColor-Silver;
+        }
+        &-info{
+            @include fontSet__bodyCopy;
+        }
+    }
+    &__btn{
+        @include heightSet(40px, null, 40px);
+        @include sectionMargin;
+        border-radius: 4px;
+        background-color: $primaryColor-BSBlack;
+        color: $primaryColor-White;
+        @media (min-width: $screenBreak-tablet){
+            @include widthSet(25%, 150px, null);
+            margin: 0;
+        }
+    }
+    &__headers{
+        @include sectionMargin;
+        @include flexboxSet(row, space-between, 1rem);
+        &-item{
+            @include widthSet(25%, null, null);
+        }
+    }
+    &__divider{
+        stroke-width: 1px;
+        color: $secondaryColor-Mercury;
+        @media (min-width: $screenBreak-tablet){
+        }
+    }
+}
+
 
 .footer {
     @include flexboxSet(column, space-evenly, 1rem);

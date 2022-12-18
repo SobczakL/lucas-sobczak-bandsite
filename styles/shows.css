@@ -246,28 +246,14 @@ ul {
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-@media (min-width: 780px) {
-  .shows {
-    margin-left: 2.25rem;
-    margin-right: 2.25rem;
-  }
-}
-@media (min-width: 1280px) {
-  .shows {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 1100px;
-  }
 }
 .shows__header {
   font-size: 24px;
   line-height: 32px;
   font-weight: 700;
   margin-top: 1.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   font-family: "AveDemi";
 }
 @media (min-width: 780px) {
@@ -282,7 +268,220 @@ ul {
     margin-top: 3rem;
   }
 }
+@media (min-width: 780px) {
+  .shows__header {
+    margin-left: 2.25rem;
+    margin-right: 2.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .shows__header {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1100px;
+  }
+}
 
+.show {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+@media (min-width: 780px) {
+  .show {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+@media (min-width: 780px) and (min-width: 780px) {
+  .show {
+    margin-left: 2.25rem;
+    margin-right: 2.25rem;
+  }
+}
+@media (min-width: 780px) and (min-width: 1280px) {
+  .show {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1100px;
+  }
+}
+.show__divider {
+  margin: 1rem 0;
+}
+.show__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+@media (min-width: 780px) {
+  .show__info {
+    margin-left: 2.25rem;
+    margin-right: 2.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .show__info {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1100px;
+  }
+}
+@media (min-width: 780px) {
+  .show__info {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.show__date-header {
+  font-size: 10px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #AFAFAF;
+}
+@media (min-width: 780px) {
+  .show__date-header {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 700;
+  }
+}
+.show__date-info {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+  font-family: "AveDemi";
+}
+@media (min-width: 780px) {
+  .show__date-info {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+}
+.show__date-item {
+  width: 25%;
+}
+.show__venue-header {
+  font-size: 10px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #AFAFAF;
+}
+@media (min-width: 780px) {
+  .show__venue-header {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 700;
+  }
+}
+.show__venue-info {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+}
+@media (min-width: 780px) {
+  .show__venue-info {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+}
+.show__location-header {
+  font-size: 10px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #AFAFAF;
+}
+@media (min-width: 780px) {
+  .show__location-header {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 700;
+  }
+}
+.show__location-info {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+}
+@media (min-width: 780px) {
+  .show__location-info {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+}
+.show__btn {
+  height: 40px;
+  max-height: 40px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 4px;
+  background-color: #323232;
+  color: #FFFFFF;
+}
+@media (min-width: 780px) {
+  .show__btn {
+    margin-left: 2.25rem;
+    margin-right: 2.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .show__btn {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1100px;
+  }
+}
+@media (min-width: 780px) {
+  .show__btn {
+    width: 25%;
+    min-width: 150px;
+    margin: 0;
+  }
+}
+.show__headers {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+}
+@media (min-width: 780px) {
+  .show__headers {
+    margin-left: 2.25rem;
+    margin-right: 2.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .show__headers {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1100px;
+  }
+}
+.show__headers-item {
+  width: 25%;
+}
+.show__divider {
+  stroke-width: 1px;
+  color: #E1E1E1;
+}
 .footer {
   display: flex;
   flex-direction: column;

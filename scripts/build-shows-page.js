@@ -34,13 +34,13 @@ function createShow(show){
     showEl.classList.add("show")
     showBtn.classList.add("show__btn");
     showInfo.classList.add("show__info");
-    showDateContainer.classList.add("show__date");
+    showDateContainer.classList.add("show__date", "show__date-item");
     showDateHeader.classList.add("show__date-header");
     showDateInfo.classList.add("show__date-info")
-    showVenueContainer.classList.add("show__venue");
+    showVenueContainer.classList.add("show__venue", "show__date-item");
     showVenueHeader.classList.add("show__venue-header");
     showVenueInfo.classList.add("show__venue-info");
-    showLocationContainer.classList.add("show__location");
+    showLocationContainer.classList.add("show__location", "show__date-item");
     showLocationHeader.classList.add("show__location-header");
     showLocationInfo.classList.add("show__location-info");
     showHeaders.classList.add("show__headers");
@@ -58,10 +58,10 @@ function createShow(show){
         showDateContainer.append(showDateInfo);
         showVenueContainer.append(showVenueInfo);
         showLocationContainer.append(showLocationInfo);
-        showInfo.append(showDateContainer, showVenueContainer, showLocationContainer);
-        showEl.append(showInfo, showBtn)
+        // showInfo.append(showDateContainer, showVenueContainer, showLocationContainer);
+        showEl.append(showDateContainer, showVenueContainer, showLocationContainer, showBtn)
 
-        return showEl
+        return showEl;
     } else {
         showDateContainer.append(showDateHeader, showDateInfo);
         showVenueContainer.append(showVenueHeader, showVenueInfo);
@@ -69,8 +69,8 @@ function createShow(show){
         showInfo.append(showDateContainer, showVenueContainer, showLocationContainer);
         showEl.append(showInfo, showBtn);
 
-        return showEl
-    }
+        return showEl;
+    };
 
 }
 
@@ -78,30 +78,48 @@ function renderShow(){
     const newShow = document.querySelector(".show-dates");
     newShow.innerHTML = "";
 
-    if(screenWidth >= 780){
+    if(screenWidth > 779){
         const showHeaders = document.createElement("div");
         const showDateHeader = document.createElement("p");
         const showVenueHeader = document.createElement("p");
         const showLocationHeader = document.createElement("p");
+        const showHeaderPlaceholder = document.createElement("p");
+
 
         showHeaders.classList.add("show__headers");
-        showDateHeader.classList.add("show__date-header");
-        showVenueHeader.classList.add("show__venue-header");
-        showLocationHeader.classList.add("show__location-header");
+        showDateHeader.classList.add("show__date-header", "show__headers-item");
+        showVenueHeader.classList.add("show__venue-header", "show__headers-item");
+        showLocationHeader.classList.add("show__location-header", "show__headers-item");
+        showHeaderPlaceholder.classList.add("show__header-placeholder", "show__headers-item")
         
         showDateHeader.innerText = headers[0];
         showVenueHeader.innerText = headers[1];
         showLocationHeader.innerText = headers[2];
 
-        showHeaders.append(showDateHeader, showVenueHeader, showLocationHeader);
-
+        showHeaders.append(showDateHeader, showVenueHeader, showLocationHeader, showHeaderPlaceholder);
         newShow.append(showHeaders);
+
         console.log(newShow);
     }
 
-    for(let i = shows.length - 1; i >= 0; i--){
-        newShow.append(createShow(shows[i]));
+    for (show of shows){
+        const showEl = createShow(show);
+        newShow.append(showEl);
+
+        const showDivider = document.createElement("hr");
+        showDivider.classList.add("show__divider");
+        newShow.append(showDivider);
     }
 }
 
+// function showsHeaderTablet(){
+//     if(screenWidth > 779){
+//         const showInfo = document.querySelector(".show__info");
+//         const showHeadersWidth = document.querySelector(".show__headers");
+//         const showInfoWidth = showInfo.offsetWidth;
+//         showHeadersWidth.style.width = showInfoWidth + "px";
+//     }
+// }
+
 renderShow();
+showsHeaderTablet();
