@@ -217,10 +217,11 @@ ul {
     }
     &__form{
         @include flexboxSet(row, center, 1rem);
-        @include widthSet(null, null, null);
         @include sectionHeader;
         @media (min-width: $screenBreak-tablet) {
-            @include sectionMargin;
+            @include widthSet(100%, null, 640px);
+            padding: 3rem 2.25rem 0 2.25rem;
+            margin: 0 auto;
         }
         &-img{
             @include widthSet(36px, 36px, 36px);
@@ -232,9 +233,6 @@ ul {
                 @include widthSet(48px, 48px, 48px);
                 @include heightSet(48px, 48px, 48px);
             }
-        }
-        input:focus{
-            border: $primaryColor-BSBlack;
         }
         &-container{
             @include flexboxSet(column, center, null);
@@ -261,8 +259,6 @@ ul {
                 }
             }
         } 
-
-        //  Comment styling for past and future comments.
         &-comment{
             @include fontSet__labelsButtons;
             color: $primaryColor-Silver;
@@ -290,6 +286,10 @@ ul {
             background-color: $primaryColor-BSBlack;
             color: $primaryColor-White;
             border-radius: 4px;
+            @media (min-width: $screenBreak-tablet){
+                @include widthSet(20%, 150px, null);
+                margin-left: auto;
+            }
         }
     }
     &__break{
@@ -297,7 +297,8 @@ ul {
         margin: 1rem 0;
         color: $secondaryColor-Mercury;
         @media (min-width: $screenBreak-tablet){
-            @include sectionMargin;
+            @include widthSet(100%, null, 640px);
+            margin: 3rem auto 0 auto;
         }
     }
 }
@@ -305,7 +306,9 @@ ul {
 
 .comment{
     @media (min-width: $screenBreak-tablet){
-        @include sectionMargin;
+        @include widthSet(100%, null, 640px);
+        padding: 3rem 2.25rem 0 2.25rem;
+        margin: 0 auto;
     }
     &__content{
         @include flexboxSet(row, center, 2rem);

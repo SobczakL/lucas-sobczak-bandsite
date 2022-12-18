@@ -76,7 +76,8 @@
     @media (min-width: $screenBreak-desktop){
         margin-left: auto;
         margin-right: auto;
-        @include widthSet(100%, null, 1280px)
+        //I subtracted the margin from the tablet screen size in order for elements to retain size as screen size increases.
+        @include widthSet(100%, null, 1100px);
     }
 }
 
