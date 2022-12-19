@@ -67,14 +67,17 @@
 }
 
 @mixin sectionMargin{
-    margin: 0 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     @media (min-width: $screenBreak-tablet){
-        margin: 0 2.25rem;
+        margin-left: 2.25rem;
+        margin-right: 2.25rem;
     }
     @media (min-width: $screenBreak-desktop){
-        margin: 0 auto;
-        @include widthSet(100%, null, 1280px)
-        // padding: 0 4rem;
+        margin-left: auto;
+        margin-right: auto;
+        //I subtracted the margin from the tablet screen size in order for elements to retain size as screen size increases.
+        @include widthSet(100%, null, 1100px);
     }
 }
 
