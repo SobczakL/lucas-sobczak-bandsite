@@ -114,6 +114,9 @@ function renderShow(){
     }
 }
 renderShow();
+
+//Below checks for screen resize and reloads the page.
+//This was a necessary add to ensure DOM elements load properly when size changes.
 window.addEventListener("resize",function(){
     this.window.location.reload()
-})
+});
