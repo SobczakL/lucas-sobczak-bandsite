@@ -64,6 +64,8 @@ function errorState(input){
     });
 }
 
+let errorMade = false;
+
 //commentSubmitHandler takes in the submit event and creates a new comments object with stored values
 function commentSubmitHandler(event) {
     event.preventDefault();
@@ -75,35 +77,39 @@ function commentSubmitHandler(event) {
     if(name === ""){
         alert("Name is required");
         errorState(".comments__form-name--input");
+        errorMade = true;
     } else if(comment === ""){
         alert("You haven't typed a comment")
         errorState(".comments__form-comment--input");
+        errorMade = true;
     } else {
-        const resetNameBorder = document.querySelector(".comments__form-name--input");
-        const resetCommentBorder = document.querySelector(".comments__form-comment--input");
-        resetNameBorder.classList.remove("error");
-        resetCommentBorder.classList.remove("error");
+        const dateStamp = new Date();
+        const dateString = dateStamp.toLocaleDateString("en-US", {
+            month: "numeric",
+            day: "numeric",
+            year: "numeric"
+        });
+        const date = `${dateString}`;
+        const commentData = {
+            name: name,
+            comment: comment,
+            date: date
+        };
+        comments.push(commentData);
     }
-    const dateStamp = new Date();
-    const dateString = dateStamp.toLocaleDateString("en-US", {
-        month: "numeric",
-        day: "numeric",
-        year: "numeric"
-    });
-    const date = `${dateString}`;
-
-    const commentData = {
-        name: name,
-        comment: comment,
-        date: date
-    };
-
-    //reset form field once values are stored
-    commentSectionForm.reset();
-    //takes form values and adds a new object into the comments array
-    comments.push(commentData);
+    if(!errorMade){
+        document.getElementById("name").value = "";
+        document.getElementById("comment").value = "";
+    }
+    errorMade = false;
     renderComment();
 }
 
 commentSubmit.addEventListener("click", commentSubmitHandler);
-renderComment();
+
+const nameInput = document.querySelector(".comments__form-name--input");
+const commentInput = document.querySelector(".comments__form-comment--input");
+
+if(!nameInput.classList.contains("error") && !commentInput.classList.contains("error")){
+    renderComment();
+}

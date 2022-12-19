@@ -286,6 +286,9 @@ ul {
             background-color: $primaryColor-BSBlack;
             color: $primaryColor-White;
             border-radius: 4px;
+            &:hover{
+                background-color: $secondaryColor-BSDarkBlack;
+            }
             @media (min-width: $screenBreak-tablet){
                 @include widthSet(20%, 150px, null);
                 margin-left: auto;

@@ -13,7 +13,7 @@ const headers = [
     "LOCATION",
 ];
 
-const screenWidth = window.screen.width;
+const screenWidth = window.innerWidth;
 
 //createShow creates html elements and sets element values pull from shows array
 function createShow(show){
@@ -55,7 +55,8 @@ function createShow(show){
     showDateInfo.innerText = show.date;
     showVenueInfo.innerText = show.venue;
     showLocationInfo.innerText = show.location;
-    
+
+    //checks screen size in order to organize elements according to layout changes illustrated in mockup
     if(screenWidth >= 780){
         showDateContainer.append(showDateInfo);
         showVenueContainer.append(showVenueInfo);
@@ -73,20 +74,19 @@ function createShow(show){
 
         return showEl;
     };
-
 }
 
 function renderShow(){
     const newShow = document.querySelector(".show-dates");
     newShow.innerHTML = "";
 
+    //Below creates 
     if(screenWidth > 779){
         const showHeaders = document.createElement("div");
         const showDateHeader = document.createElement("p");
         const showVenueHeader = document.createElement("p");
         const showLocationHeader = document.createElement("p");
         const showHeaderPlaceholder = document.createElement("p");
-
 
         showHeaders.classList.add("show__headers");
         showDateHeader.classList.add("show__date-header", "show__headers-item");
@@ -113,5 +113,7 @@ function renderShow(){
         newShow.append(showDivider);
     }
 }
-
 renderShow();
+window.addEventListener("resize",function(){
+    this.window.location.reload()
+})

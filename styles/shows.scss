@@ -176,10 +176,8 @@ ul {
     @include flexboxSet(column, space-between, 1rem);
     @media (min-width: $screenBreak-tablet){
         @include flexboxSet(row, center, null);
-        padding: 0 1rem;
-        box-sizing: border-box;
+        @include sectionMargin;
         height: 80px;
-        width: 100%;
         &:hover{
             background-color: $secondaryColor-Alabaster;
         }
@@ -187,9 +185,18 @@ ul {
             background-color: $secondaryColor-Mercury;
         }
     }
+    @media (min-width: $screenBreak-desktop){
+        margin: 0;
+        padding: 0 1rem;
+        box-sizing: border-box;
+        width: 100%;
+    }
 
     &-dates{
         width: 100%;
+        @media (min-width: $screenBreak-tablet){
+            // @include sectionMargin;
+        }
         @media (min-width: $screenBreak-desktop){
             @include sectionHeader;
             width: 75%;
@@ -220,8 +227,10 @@ ul {
             font-family: $fontFamily-demi
         }
         &-item{
-            @include widthSet(25%, null, null);
-            @include flexboxSet(column, center, null);
+            @media (min-width: $screenBreak-tablet){
+                @include widthSet(25%, null, null);
+                @include flexboxSet(column, center, null);
+            }
         }
     }
     &__venue{
@@ -253,21 +262,35 @@ ul {
         background-color: $primaryColor-BSBlack;
         cursor: pointer;
         color: $primaryColor-White;
+        &:hover{
+            background-color: $secondaryColor-BSDarkBlack;
+        }
         @media (min-width: $screenBreak-tablet){
             @include widthSet(null, 150px, 150px);
             margin: 0 auto;
         }
     }
     &__headers{
-        @include flexboxSet(row, space-between, 1rem);
-        box-sizing: border-box;
-        margin-bottom: 1rem;
-        &-item{
-            @include widthSet(25%, null, 25%);
-            // padding: 0 1rem;
-        }
         @media (min-width: $screenBreak-tablet){
-            padding: 0 1rem;
+            @include flexboxSet(row, space-between, 1rem);
+            @include sectionHeader;
+            @include sectionMargin;
+            box-sizing: border-box;
+            margin-bottom: 1rem;
+        }
+        @media (min-width: $screenBreak-desktop){
+            margin-top: 0;   
+            margin-left: 0;
+            margin-right: 0;
+            padding-top: 1.25rem;
+        }
+        &-item{
+            @media (min-width: $screenBreak-tablet){
+                @include widthSet(25%, null, 25%);
+            }
+            @media (min-width: $screenBreak-desktop){
+                padding: 0 1rem;
+            }
         }
     }
     &__divider{
@@ -297,8 +320,10 @@ ul {
     }
     &__social{
         @include flexboxSet(column, space-evenly, 1rem);
+        margin-bottom: 1rem;
         @media (min-width: $screenBreak-tablet){
             @include flexboxSet(row, flex-start, 2rem);
+            margin-bottom: 0;
             align-items: baseline;
         }
         &-header{
