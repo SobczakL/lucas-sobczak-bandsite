@@ -7,33 +7,6 @@ const comments = [
 
 const commentTimeParse = {date: 0};
 
-// function parsedTime(date) {
-//     const timeDif = Date.now() - date.getTime();
-//     const daysDif = Math.floor(timeDif / (1000 * 60 * 60 * 24));
-//     const hoursDif = Math.floor(timeDif / (1000 * 60 * 60));
-//     const minDif = Math.floor(timeDif / (1000 * 60));
-//     const secDif = Math.floor(timeDif / (1000));
-
-//     if (daysDif >= 1) {
-//         commentTimeParse.date.value = `${daysDif} days ago`
-//     }
-//     if (hoursDif >= 1) {
-//         commentTimeParse.date.value = `${hoursDif} hours ago`
-//     }
-//     if (minDif >= 1) {
-//         commentTimeParse.date.value = `${minDif} minutes ago`
-//     }
-//     if (secDif >= 44) {
-//         commentTimeParse.date.value = `${secDif} seconds ago`
-//     }
-//     if (secDif < 44) {
-//         commentTimeParse.date.value = "A few seconds ago";
-//     }
-//     const target = comments.date.value;
-//     const returnedTarget = Object.assign(target, commentTimeParse);
-//     console.log(comments[0])
-// }
-
 const commentSectionForm = document.querySelector(".comments__form-container");
 const commentSubmit = document.querySelector(".comments__form--submit")
 
