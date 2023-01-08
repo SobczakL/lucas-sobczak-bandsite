@@ -6,7 +6,6 @@ const comments = [
 ];
 
 const commentTimeParse = {date: 0};
-
 const commentSectionForm = document.querySelector(".comments__form-container");
 const commentSubmit = document.querySelector(".comments__form--submit")
 
@@ -45,7 +44,7 @@ function createComment(comment){
 }
 
 //renderComment outputs a comment for each object in the comments array
-function renderComment(){
+function displayComment(){
     const newCommentEl = document.querySelector(".new-comment");
     newCommentEl.innerHTML = "";
 
@@ -101,7 +100,7 @@ function commentSubmitHandler(event) {
         document.getElementById("comment").value = "";
     }
     errorMade = false;
-    renderComment();
+    displayComment();
 }
 
 commentSubmit.addEventListener("click", commentSubmitHandler);
@@ -110,5 +109,5 @@ const nameInput = document.querySelector(".comments__form-name--input");
 const commentInput = document.querySelector(".comments__form-comment--input");
 
 if(!nameInput.classList.contains("error") && !commentInput.classList.contains("error")){
-    renderComment();
+    displayComment();
 }
